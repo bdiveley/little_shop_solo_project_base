@@ -150,7 +150,12 @@ class User < ApplicationRecord
 private
 
   def generate_slug
-      self.slug = email.delete("@.") if name
+    if name
+      loop do
+        self.slug = name.downcase.delete(" ") + rand(1000..9999).to_s
+        break unless User.where(slug: self.slug).exists?
+      end
+    end 
   end
 
 end

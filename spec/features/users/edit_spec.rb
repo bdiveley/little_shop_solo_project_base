@@ -57,12 +57,12 @@ RSpec.describe 'User Edit Page, aka Profile Edit' do
     end
     it 'should allow admin to edit profile data if email is still unique' do
       user = create(:user, email: "oldybutGoody@mail.com")
-      visit edit_user_path(user)
+      visit edit_admin_user_path(user)
 
       fill_in :user_email, with: "MoreAwesome@mail.com"
       click_button 'Update User'
-      
-      expect(current_path).to eq("/users/MoreAwesomemailcom")
+
+      expect(current_path).to eq(user_path(user))
       within '.profile-data' do
         expect(page).to have_content("MoreAwesome@mail.com")
       end
