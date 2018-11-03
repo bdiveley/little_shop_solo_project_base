@@ -14,7 +14,7 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2018-11-03T10:36:28-06:00">2018-11-03T10:36:28-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2018-11-03T10:43:27-06:00">2018-11-03T10:43:27-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -32,8 +32,8 @@
   <a name="AllFiles"></a>
   <div>
     <b>40</b> files in total.
-    <b>1893</b> relevant lines. 
-    <span class="green"><b>1893</b> lines covered</span> and
+    <b>1895</b> relevant lines. 
+    <span class="green"><b>1895</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -104,8 +104,8 @@
         <td class="strong"><a href="#518aa93958843d0c166829bc9ebf53c31f3df387" class="src_link" title="app/controllers/items_controller.rb">app/controllers/items_controller.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>88</td>
-        <td>58</td>
-        <td>58</td>
+        <td>59</td>
+        <td>59</td>
         <td>0</td>
         <td>2.8</td>
       </tr>
@@ -253,9 +253,9 @@
       <tr>
         <td class="strong"><a href="#23a7925409c9a29b3a55a96d933dfa27db0d2365" class="src_link" title="spec/factories/user.rb">spec/factories/user.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>39</td>
-        <td>30</td>
-        <td>30</td>
+        <td>40</td>
+        <td>31</td>
+        <td>31</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
@@ -1118,8 +1118,8 @@
     <h3>app/controllers/items_controller.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>58</b> relevant lines. 
-      <span class="green"><b>58</b> lines covered</span> and
+      <b>59</b> relevant lines. 
+      <span class="green"><b>59</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -1247,130 +1247,130 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="21">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="22">
+        <li class="covered" data-hits="1" data-linenumber="21">
           <span class="hits">1</span>
           
           <code class="ruby">  def create</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="23">
+        <li class="covered" data-hits="3" data-linenumber="22">
           <span class="hits">3</span>
           
           <code class="ruby">    render file: &#39;errors/not_found&#39;, status: 404 if current_user.nil?</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="24">
+        <li class="covered" data-hits="3" data-linenumber="23">
           <span class="hits">3</span>
           
           <code class="ruby">    @merchant = User.find_by(slug: params[:merchant_slug])</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="25">
+        <li class="covered" data-hits="3" data-linenumber="24">
           <span class="hits">3</span>
           
           <code class="ruby">    render file: &#39;errors/not_found&#39;, status: 404 unless current_admin? || current_user == @merchant</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="26">
+        <li class="never" data-hits="" data-linenumber="25">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="27">
+        <li class="covered" data-hits="3" data-linenumber="26">
           <span class="hits">3</span>
           
           <code class="ruby">    @item = @merchant.items.create(item_params)</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="28">
+        <li class="covered" data-hits="3" data-linenumber="27">
           <span class="hits">3</span>
           
           <code class="ruby">    if @item.save</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="29">
+        <li class="covered" data-hits="2" data-linenumber="28">
           <span class="hits">2</span>
           
           <code class="ruby">      if @item.image.nil? || @item.image.empty?</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="30">
+        <li class="covered" data-hits="1" data-linenumber="29">
           <span class="hits">1</span>
           
           <code class="ruby">        @item.image = &#39;https://picsum.photos/200/300/?image=0&amp;blur=true&#39;</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="31">
+        <li class="covered" data-hits="1" data-linenumber="30">
           <span class="hits">1</span>
           
           <code class="ruby">        @item.save</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="32">
+        <li class="never" data-hits="" data-linenumber="31">
           
           
           <code class="ruby">      end</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="33">
+        <li class="covered" data-hits="2" data-linenumber="32">
           <span class="hits">2</span>
           
           <code class="ruby">      flash[:success] = &quot;Item created&quot;</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="34">
+        <li class="covered" data-hits="2" data-linenumber="33">
           <span class="hits">2</span>
           
           <code class="ruby">      redirect_to current_admin? ? merchant_items_path(@merchant) : dashboard_items_path</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="35">
+        <li class="never" data-hits="" data-linenumber="34">
           
           
           <code class="ruby">    else</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="36">
+        <li class="covered" data-hits="1" data-linenumber="35">
           <span class="hits">1</span>
           
           <code class="ruby">      @form_url = merchant_items_path</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="37">
+        <li class="covered" data-hits="1" data-linenumber="36">
           <span class="hits">1</span>
           
           <code class="ruby">      render :new</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="38">
+        <li class="never" data-hits="" data-linenumber="37">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="39">
+        <li class="never" data-hits="" data-linenumber="38">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="40">
+        <li class="never" data-hits="" data-linenumber="39">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="41">
+        <li class="covered" data-hits="1" data-linenumber="40">
           <span class="hits">1</span>
           
           <code class="ruby">  def edit</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="41">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    binding.pry</code>
         </li>
       
         <li class="covered" data-hits="2" data-linenumber="42">
@@ -4631,8 +4631,8 @@
     <h3>spec/factories/user.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>30</b> relevant lines. 
-      <span class="green"><b>30</b> lines covered</span> and
+      <b>31</b> relevant lines. 
+      <span class="green"><b>31</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -4787,7 +4787,7 @@
         <li class="never" data-hits="" data-linenumber="25">
           
           
-          <code class="ruby">  </code>
+          <code class="ruby"></code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="26">
@@ -4853,22 +4853,28 @@
         <li class="covered" data-hits="1" data-linenumber="36">
           <span class="hits">1</span>
           
-          <code class="ruby">    role { 2 }</code>
+          <code class="ruby">    sequence(:password) { |n| &quot;admin#{n}&quot; }</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="37">
           <span class="hits">1</span>
           
+          <code class="ruby">    role { 2 }</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="38">
+          <span class="hits">1</span>
+          
           <code class="ruby">    active { true }</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="38">
+        <li class="never" data-hits="" data-linenumber="39">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="39">
+        <li class="never" data-hits="" data-linenumber="40">
           
           
           <code class="ruby">end</code>

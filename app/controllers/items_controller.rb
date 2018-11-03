@@ -18,7 +18,6 @@ class ItemsController < ApplicationController
     @item = Item.find_by(slug: params[:slug])
   end
 
-
   def create
     render file: 'errors/not_found', status: 404 if current_user.nil?
     @merchant = User.find_by(slug: params[:merchant_slug])
