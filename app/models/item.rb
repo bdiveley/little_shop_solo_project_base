@@ -32,6 +32,9 @@ class Item < ApplicationRecord
 private
 
   def generate_slug
-    self.slug = name.parameterize
+    loop do
+      self.slug = name.parameterize + rand(1000..9999).to_s
+      break unless Item.where(slug: self.slug).exists?
+    end
   end
 end

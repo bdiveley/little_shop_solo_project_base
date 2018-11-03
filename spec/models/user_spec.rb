@@ -105,7 +105,8 @@ RSpec.describe User, type: :model do
       create(:fulfilled_order_item, order: order_2, item: item_2)
       create(:fulfilled_order_item, order: order_2, item: item_3)
 
-      expect(merchant.merchant_orders).to eq([order_1, order_2])
+      expect(merchant.merchant_orders.first).to eq(order_1)
+      expect(merchant.merchant_orders.last).to eq(order_2)
     end
     it '.merchant_items(:pending)' do
       user = create(:user)
@@ -298,8 +299,8 @@ RSpec.describe User, type: :model do
       expect(merchant_1.top_buyers(3)).to eq([user_2, user_1, user_3])
     end
     it ".generate_slug" do
-      user = create(:user, name: "Rhonda Smith")
-      expect(user.slug). to eq("rhondasmith")
+      user = create(:user, email: "rhondasmith@gmail.com")
+      expect(user.slug). to eq("rhondasmithgmailcom")
     end
   end
 end

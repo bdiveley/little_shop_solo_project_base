@@ -35,5 +35,9 @@ RSpec.describe Item, type: :model do
   end
 
   describe 'Instance Methods' do
+    it ".generate_slug" do
+      item = create(:item, name: "Rubricks Cube")
+      expect(item.slug). to include("rubricks-cube")
+    end
   end
 end
