@@ -1,6 +1,6 @@
 <h1>Merchant Dashboard</h1>
 
-<p><%= link_to "Edit Profile Data", current_admin? ? edit_user_path(@merchant) : profile_edit_path %></p>
+<p><%= link_to "Edit Profile Data", current_admin? ? edit_admin_user_path(@merchant) : profile_edit_path %></p>
 <p><%= link_to 'My Items for Sale', current_admin? ? merchant_items_path(@merchant) : dashboard_items_path %>
 
 <div id="stats">

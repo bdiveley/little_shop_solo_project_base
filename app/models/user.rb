@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
   enum role: %w(user merchant admin)
 
-  before_save :generate_slug
+  before_create :generate_slug
 
   def merchant_orders(status=nil)
     if status.nil?
