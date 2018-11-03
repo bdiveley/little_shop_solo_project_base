@@ -18,13 +18,6 @@ class ItemsController < ApplicationController
     @item = Item.find_by(slug: params[:slug])
   end
 
-  def edit
-    render file: 'errors/not_found', status: 404 if current_user.nil?
-    @merchant = User.find_by(slug: params[:merchant_slug])
-    render file: 'errors/not_found', status: 404 unless current_admin? || current_user == @merchant
-    @item = Item.find_by(slug: params[:slug])
-    @form_url = merchant_item_path(@merchant, @item)
-  end
 
   def create
     render file: 'errors/not_found', status: 404 if current_user.nil?
@@ -45,17 +38,23 @@ class ItemsController < ApplicationController
     end
   end
 
+  def edit
+    render file: 'errors/not_found', status: 404 if current_user.nil?
+    @merchant = User.find_by(slug: params[:merchant_slug])
+    render file: 'errors/not_found', status: 404 unless current_admin? || current_user == @merchant
+    @item = Item.find_by(slug: params[:slug])
+    @form_url = merchant_item_path(@merchant, @item)
+  end
+
   def update
     render file: 'errors/not_found', status: 404 if current_user.nil?
     @merchant = User.find_by(slug: params[:merchant_slug])
-
-    binding.pry
-    item_id = :item_id
-    if params[:id]
-      item_id = :id
+#fix this
+    if params[:slug]
+      @item = Item.find_by(slug: params[:slug])
+    else
+      @item = Item.find(params[:item_slug])
     end
-    @item = Item.find_by(params[item_id])
-    binding.pry
 
     render file: 'errors/not_found', status: 404 unless current_admin? || current_user == @merchant
 

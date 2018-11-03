@@ -18,13 +18,14 @@ FactoryBot.define do
 
   factory :merchant, parent: :user do
     sequence(:email) { |n| "merchant_#{n}@gmail.com" }
-    sequence(:name) { |n| "Merchant #{n}" }
+    sequence(:name) { |n| "Active Merchant #{n}" }
     role { 1 }
     active { true }
   end
+  
   factory :inactive_merchant, parent: :user do
     sequence(:email) { |n| "inactive_merchant_#{n}@gmail.com" }
-    sequence(:name) { |n| "Merchant #{n}" }
+    sequence(:name) { |n| "Inactive Merchant #{n}" }
     role { 1 }
     active { false }
   end

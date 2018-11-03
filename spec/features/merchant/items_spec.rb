@@ -161,6 +161,7 @@ RSpec.describe 'Merchant Items' do
         fill_in :item_description, with: ''
         fill_in :item_price, with: ''
         fill_in :item_inventory, with: ''
+        click_button "Update Item"
 
         expect(current_path).to eq(merchant_item_path(@merchant, item))
         expect(page).to have_content("Name can't be blank")
