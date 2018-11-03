@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   end
   resources :order_items, only: [:update]
 
-  resources :items, only: [:index, :show]
+  resources :items, only: [:index, :show], param: :slug
   resources :users, only: [:index, :new, :create, :edit, :show, :update], param: :slug do
     resources :orders, only: [:index, :update]
     patch 'enable', to: 'users#update'
@@ -34,7 +34,7 @@ Rails.application.routes.draw do
 
   resources :merchants, only: [:index, :update, :show], param: :slug do
     resources :orders, only: [:index]
-    resources :items, only: [:index, :new, :edit, :create, :update] do
+    resources :items, only: [:index, :new, :edit, :create, :update], param: :slug do
       patch 'enable', to: 'items#update'
       patch 'disable', to: 'items#update'
     end

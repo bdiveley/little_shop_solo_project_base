@@ -1,11 +1,11 @@
 class ItemsController < ApplicationController
   def index
-      @items = Item.where(active: true)
+    @items = Item.where(active: true)
 
-      @popular_items = Item.popular_items(5)
-      @popular_merchants = User.popular_merchants(5)
-      @fastest_merchants = User.fastest_merchants(3)
-      @slowest_merchants = User.slowest_merchants(3)
+    @popular_items = Item.popular_items(5)
+    @popular_merchants = User.popular_merchants(5)
+    @fastest_merchants = User.fastest_merchants(3)
+    @slowest_merchants = User.slowest_merchants(3)
   end
 
   def new
@@ -15,14 +15,14 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
+    @item = Item.find_by(slug: params[:slug])
   end
 
   def edit
     render file: 'errors/not_found', status: 404 if current_user.nil?
     @merchant = User.find_by(slug: params[:merchant_slug])
     render file: 'errors/not_found', status: 404 unless current_admin? || current_user == @merchant
-    @item = Item.find(params[:id])
+    @item = Item.find_by(slug: params[:slug])
     @form_url = merchant_item_path(@merchant, @item)
   end
 
@@ -48,11 +48,15 @@ class ItemsController < ApplicationController
   def update
     render file: 'errors/not_found', status: 404 if current_user.nil?
     @merchant = User.find_by(slug: params[:merchant_slug])
+
+    binding.pry
     item_id = :item_id
     if params[:id]
       item_id = :id
     end
-    @item = Item.find(params[item_id])
+    @item = Item.find_by(params[item_id])
+    binding.pry
+
     render file: 'errors/not_found', status: 404 unless current_admin? || current_user == @merchant
 
     if request.fullpath.split('/')[-1] == 'disable'
