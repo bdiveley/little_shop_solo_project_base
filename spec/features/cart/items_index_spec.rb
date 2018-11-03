@@ -109,7 +109,7 @@ RSpec.describe 'Items Index' do
       end
       it 'should block me from adding more items than a merchant has quantity' do
         FactoryBot.reload
-        item_1 = create(:item, user: @merchant)
+        item_1 = create(:item, user: @merchant, name: "Throw Pillows")
         visit item_path(item_1)
         click_button("Add to Cart")
         visit carts_path

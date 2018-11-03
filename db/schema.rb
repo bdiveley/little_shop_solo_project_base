@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20181103030706) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
+    t.index ["slug"], name: "index_items_on_slug", unique: true
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
@@ -62,6 +63,7 @@ ActiveRecord::Schema.define(version: 20181103030706) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
+    t.index ["slug"], name: "index_users_on_slug", unique: true
   end
 
   add_foreign_key "items", "users"

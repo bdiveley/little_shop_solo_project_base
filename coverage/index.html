@@ -14,7 +14,7 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2018-11-03T10:43:27-06:00">2018-11-03T10:43:27-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2018-11-03T11:21:18-06:00">2018-11-03T11:21:18-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -32,8 +32,8 @@
   <a name="AllFiles"></a>
   <div>
     <b>40</b> files in total.
-    <b>1895</b> relevant lines. 
-    <span class="green"><b>1895</b> lines covered</span> and
+    <b>1894</b> relevant lines. 
+    <span class="green"><b>1894</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -103,9 +103,9 @@
       <tr>
         <td class="strong"><a href="#518aa93958843d0c166829bc9ebf53c31f3df387" class="src_link" title="app/controllers/items_controller.rb">app/controllers/items_controller.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>88</td>
-        <td>59</td>
-        <td>59</td>
+        <td>87</td>
+        <td>58</td>
+        <td>58</td>
         <td>0</td>
         <td>2.8</td>
       </tr>
@@ -1118,8 +1118,8 @@
     <h3>app/controllers/items_controller.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>59</b> relevant lines. 
-      <span class="green"><b>59</b> lines covered</span> and
+      <b>58</b> relevant lines. 
+      <span class="green"><b>58</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -1367,250 +1367,250 @@
           <code class="ruby">  def edit</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="41">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="41">
+          <span class="hits">2</span>
           
-          <code class="ruby">    binding.pry</code>
+          <code class="ruby">    render file: &#39;errors/not_found&#39;, status: 404 if current_user.nil?</code>
         </li>
       
         <li class="covered" data-hits="2" data-linenumber="42">
           <span class="hits">2</span>
           
-          <code class="ruby">    render file: &#39;errors/not_found&#39;, status: 404 if current_user.nil?</code>
+          <code class="ruby">    @merchant = User.find_by(slug: params[:merchant_slug])</code>
         </li>
       
         <li class="covered" data-hits="2" data-linenumber="43">
           <span class="hits">2</span>
           
-          <code class="ruby">    @merchant = User.find_by(slug: params[:merchant_slug])</code>
+          <code class="ruby">    render file: &#39;errors/not_found&#39;, status: 404 unless current_admin? || current_user == @merchant</code>
         </li>
       
         <li class="covered" data-hits="2" data-linenumber="44">
           <span class="hits">2</span>
           
-          <code class="ruby">    render file: &#39;errors/not_found&#39;, status: 404 unless current_admin? || current_user == @merchant</code>
+          <code class="ruby">    @item = Item.find_by(slug: params[:slug])</code>
         </li>
       
         <li class="covered" data-hits="2" data-linenumber="45">
           <span class="hits">2</span>
           
-          <code class="ruby">    @item = Item.find_by(slug: params[:slug])</code>
+          <code class="ruby">    @form_url = merchant_item_path(@merchant, @item)</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="46">
-          <span class="hits">2</span>
+        <li class="never" data-hits="" data-linenumber="46">
           
-          <code class="ruby">    @form_url = merchant_item_path(@merchant, @item)</code>
+          
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="47">
           
           
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="48">
-          
-          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="49">
+        <li class="covered" data-hits="1" data-linenumber="48">
           <span class="hits">1</span>
           
           <code class="ruby">  def update</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="50">
+        <li class="covered" data-hits="4" data-linenumber="49">
           <span class="hits">4</span>
           
           <code class="ruby">    render file: &#39;errors/not_found&#39;, status: 404 if current_user.nil?</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="51">
+        <li class="covered" data-hits="4" data-linenumber="50">
           <span class="hits">4</span>
           
           <code class="ruby">    @merchant = User.find_by(slug: params[:merchant_slug])</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="52">
+        <li class="never" data-hits="" data-linenumber="51">
           
           
           <code class="ruby">#fix this</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="53">
+        <li class="covered" data-hits="4" data-linenumber="52">
           <span class="hits">4</span>
           
           <code class="ruby">    if params[:slug]</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="54">
+        <li class="covered" data-hits="2" data-linenumber="53">
           <span class="hits">2</span>
           
           <code class="ruby">      @item = Item.find_by(slug: params[:slug])</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="55">
+        <li class="never" data-hits="" data-linenumber="54">
           
           
           <code class="ruby">    else</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="56">
+        <li class="covered" data-hits="2" data-linenumber="55">
           <span class="hits">2</span>
           
           <code class="ruby">      @item = Item.find(params[:item_slug])</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="57">
+        <li class="never" data-hits="" data-linenumber="56">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="58">
+        <li class="never" data-hits="" data-linenumber="57">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="59">
+        <li class="covered" data-hits="4" data-linenumber="58">
           <span class="hits">4</span>
           
           <code class="ruby">    render file: &#39;errors/not_found&#39;, status: 404 unless current_admin? || current_user == @merchant</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="60">
+        <li class="never" data-hits="" data-linenumber="59">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="61">
+        <li class="covered" data-hits="4" data-linenumber="60">
           <span class="hits">4</span>
           
           <code class="ruby">    if request.fullpath.split(&#39;/&#39;)[-1] == &#39;disable&#39;</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="62">
+        <li class="covered" data-hits="1" data-linenumber="61">
           <span class="hits">1</span>
           
           <code class="ruby">      flash[:success] = &quot;Item #{@item.id} is now disabled&quot;</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="63">
+        <li class="covered" data-hits="1" data-linenumber="62">
           <span class="hits">1</span>
           
           <code class="ruby">      @item.active = false</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="64">
+        <li class="covered" data-hits="1" data-linenumber="63">
           <span class="hits">1</span>
           
           <code class="ruby">      @item.save</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="65">
+        <li class="covered" data-hits="1" data-linenumber="64">
           <span class="hits">1</span>
           
           <code class="ruby">      redirect_to current_admin? ? merchant_items_path(@merchant) : dashboard_items_path</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="66">
+        <li class="covered" data-hits="3" data-linenumber="65">
           <span class="hits">3</span>
           
           <code class="ruby">    elsif request.fullpath.split(&#39;/&#39;)[-1] == &#39;enable&#39;</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="67">
+        <li class="covered" data-hits="1" data-linenumber="66">
           <span class="hits">1</span>
           
           <code class="ruby">      flash[:success] = &quot;Item #{@item.id} is now enabled&quot;</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="68">
+        <li class="covered" data-hits="1" data-linenumber="67">
           <span class="hits">1</span>
           
           <code class="ruby">      @item.active = true</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="69">
+        <li class="covered" data-hits="1" data-linenumber="68">
           <span class="hits">1</span>
           
           <code class="ruby">      @item.save</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="70">
+        <li class="covered" data-hits="1" data-linenumber="69">
           <span class="hits">1</span>
           
           <code class="ruby">      redirect_to current_admin? ? merchant_items_path(@merchant) : dashboard_items_path</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="71">
+        <li class="never" data-hits="" data-linenumber="70">
           
           
           <code class="ruby">    else</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="72">
+        <li class="covered" data-hits="2" data-linenumber="71">
           <span class="hits">2</span>
           
           <code class="ruby">      @item.update(item_params)</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="73">
+        <li class="covered" data-hits="2" data-linenumber="72">
           <span class="hits">2</span>
           
           <code class="ruby">      if @item.save</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="74">
+        <li class="covered" data-hits="1" data-linenumber="73">
           <span class="hits">1</span>
           
           <code class="ruby">        flash[:success] = &quot;Item updated&quot;</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="75">
+        <li class="covered" data-hits="1" data-linenumber="74">
           <span class="hits">1</span>
           
           <code class="ruby">        redirect_to current_admin? ? merchant_items_path(@merchant) : dashboard_items_path</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="76">
+        <li class="never" data-hits="" data-linenumber="75">
           
           
           <code class="ruby">      else</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="77">
+        <li class="covered" data-hits="1" data-linenumber="76">
           <span class="hits">1</span>
           
           <code class="ruby">        @form_url = merchant_item_path(@merchant, @item)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="78">
+        <li class="covered" data-hits="1" data-linenumber="77">
           <span class="hits">1</span>
           
           <code class="ruby">        render :edit</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="79">
+        <li class="never" data-hits="" data-linenumber="78">
           
           
           <code class="ruby">      end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="80">
+        <li class="never" data-hits="" data-linenumber="79">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="81">
+        <li class="never" data-hits="" data-linenumber="80">
           
           
           <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="81">
+          
+          
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="82">
@@ -1619,37 +1619,31 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="83">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="84">
+        <li class="covered" data-hits="1" data-linenumber="83">
           <span class="hits">1</span>
           
           <code class="ruby">  private</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="85">
+        <li class="covered" data-hits="1" data-linenumber="84">
           <span class="hits">1</span>
           
           <code class="ruby">    def item_params</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="86">
+        <li class="covered" data-hits="5" data-linenumber="85">
           <span class="hits">5</span>
           
           <code class="ruby">      params.require(:item).permit(:user_id, :name, :description, :image, :price, :inventory)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="87">
+        <li class="never" data-hits="" data-linenumber="86">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="88">
+        <li class="never" data-hits="" data-linenumber="87">
           
           
           <code class="ruby">end</code>
@@ -6187,7 +6181,7 @@
         <li class="covered" data-hits="1" data-linenumber="112">
           <span class="hits">1</span>
           
-          <code class="ruby">        item_1 = create(:item, user: @merchant)</code>
+          <code class="ruby">        item_1 = create(:item, user: @merchant, name: &quot;Throw Pillows&quot;)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="113">
