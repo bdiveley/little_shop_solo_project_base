@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Admin-only user management' do 
+RSpec.describe 'Admin-only user management' do
   before(:each) do
     @admin = create(:admin)
     @active_user = create(:user)
@@ -12,7 +12,7 @@ RSpec.describe 'Admin-only user management' do
     fill_in :email, with: @admin.email
     fill_in :password, with: @admin.password
     click_button 'Log in'
-  
+
     visit users_path
 
     within "#user-#{@active_user.id}" do
@@ -54,7 +54,7 @@ RSpec.describe 'Admin-only user management' do
     fill_in :email, with: @inactive_user.email
     fill_in :password, with: @inactive_user.password
     click_button 'Log in'
-    
+
     expect(current_path).to eq(profile_path)
   end
 
@@ -63,7 +63,7 @@ RSpec.describe 'Admin-only user management' do
     fill_in :email, with: @admin.email
     fill_in :password, with: @admin.password
     click_button 'Log in'
-  
+
     visit users_path
 
     within "#user-#{@active_user.id}" do
@@ -83,7 +83,7 @@ RSpec.describe 'Admin-only user management' do
     fill_in :email, with: @admin.email
     fill_in :password, with: @admin.password
     click_button 'Log in'
-  
+
     visit users_path
 
     within "#user-#{@active_merchant.id}" do
@@ -96,5 +96,54 @@ RSpec.describe 'Admin-only user management' do
       expect(page).to have_button("Upgrade to Merchant")
       expect(page).to_not have_button("Downgrade to User")
     end
+  end
+  it 'allows admin access to a user edit page through admin namespace' do
+    visit login_path
+    fill_in :email, with: @admin.email
+    fill_in :password, with: @admin.password
+    click_button 'Log in'
+
+    visit users_path
+    within "#user-#{@active_user.id}" do
+      click_link "Edit"
+    end
+
+    expect(current_path).to eq(edit_admin_user_path(@active_user))
+
+    visit user_path(@active_user)
+    click_link "Edit Profile Data"
+
+    expect(current_path).to eq(edit_admin_user_path(@active_user))
+
+    visit merchant_path(@active_merchant)
+    click_link "Edit Profile Data"
+
+    expect(current_path).to eq(edit_admin_user_path(@active_merchant))
+  end
+  it "allows admin to change the all atributes, including the slug for a user" do
+    visit login_path
+    fill_in :email, with: @admin.email
+    fill_in :password, with: @admin.password
+    click_button 'Log in'
+
+    visit edit_admin_user_path(@active_user)
+
+    fill_in :user_name, with: "New Name"
+    fill_in :user_address, with: "New Address"
+    fill_in :user_city, with: "New City"
+    fill_in :user_state, with: "New State"
+    fill_in :user_zip, with: "New Zip"
+    fill_in :user_email, with: "New Email"
+    fill_in :user_slug, with: "coolnewslug"
+    click_button 'Update User'
+
+    expect(current_path).to eq('/users/coolnewslug')
+    expect(page).to have_content("New Name")
+    expect(page).to have_content("New Address")
+    expect(page).to have_content("New City")
+    expect(page).to have_content("New State")
+    expect(page).to have_content("New Zip")
+    expect(page).to have_content("New Email")
+
   end
 end

@@ -299,8 +299,8 @@ RSpec.describe User, type: :model do
       expect(merchant_1.top_buyers(3)).to eq([user_2, user_1, user_3])
     end
     it ".generate_slug" do
-      user = create(:user, email: "rhondasmith@gmail.com")
-      expect(user.slug). to eq("rhondasmithgmailcom")
+      user = create(:user, name: "Rhonda Smith")
+      expect(user.slug). to include("rhondasmith")
     end
   end
 end
