@@ -174,4 +174,21 @@ RSpec.describe 'Admin-only user management' do
 
     expect(current_path).to eq('/users/uniqueslug')
   end
+  it 'should block updating if email is not unique' do
+    @user_1 = create(:user, name: "Bailey", email: "bailey@gmail.com")
+    @user_2 = create(:user, name: "Taylor")
+
+    visit login_path
+    fill_in :email, with: @admin.email
+    fill_in :password, with: @admin.password
+    click_button 'Log in'
+
+    visit edit_admin_user_path(@user_2)
+
+    fill_in :user_email, with: "bailey@gmail.com"
+    click_button 'Update User'
+
+    expect(current_path).to eq(edit_admin_user_path(@user_2))
+    expect(page).to have_content("Email has already been taken")
+  end
 end

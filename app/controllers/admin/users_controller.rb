@@ -14,7 +14,7 @@ class Admin::UsersController < ApplicationController
       @user[:slug] = params[:slug]
       redirect_to edit_admin_user_path(@user), notice: "Slug has already been taken"
     else
-      render :edit
+      redirect_to edit_admin_user_path(@user), notice: "Email has already been taken"
     end
   end
 
