@@ -62,8 +62,8 @@ RSpec.describe 'Items Index' do
     describe 'visiting /cart' do
       it 'should show all item content for what is in my cart' do
         FactoryBot.reload
-        item_1 = create(:item, user: @merchant, name: "Bean Bag")
-        item_2 = create(:item, user: @merchant, name: "Blender")
+        item_1 = create(:item, user: @merchant, name: "Bean Bag", price: 4.05)
+        item_2 = create(:item, user: @merchant, name: "Blender", price: 5.01)
 
         visit item_path(item_1)
         click_button("Add to Cart")
@@ -78,16 +78,16 @@ RSpec.describe 'Items Index' do
           expect(page).to have_content(item_1.name)
           # code smell, had to hard-code an ID in the image filename for factorybot sequence
           expect(page.find("#item-image-#{item_1.id}")['src']).to have_content "https://picsum.photos/200/300?image=1"
-          expect(page).to have_content("Price: #{item_1.price}")
+          expect(page).to have_content("Price: $#{item_1.price}")
           expect(page).to have_content("Quantity: 1")
           expect(page).to have_content("Subtotal: $#{item_1.price}")
         end
         within "#item-#{item_2.id}" do
-          expect(page).to have_content("Price: #{item_2.price}")
+          expect(page).to have_content("Price: $#{item_2.price}")
           expect(page).to have_content("Quantity: 2")
           expect(page).to have_content("Subtotal: $#{2 * item_2.price}")
         end
-        expect(page).to have_content("Grand Total: $12.00")
+        expect(page).to have_content("Grand Total: $14.07")
         click_button "Check out"
       end
       it 'should allow me to empty my cart' do
@@ -157,8 +157,45 @@ RSpec.describe 'Items Index' do
         expect(page).to have_content("Cart: 0")
         expect(page).to have_content("Grand Total: $0.00")
       end
+      it 'should display subtotal and grand total prices with discounts applied' do
+        FactoryBot.reload
+        item_1 = create(:item, user: @merchant, name: "Bean Bag", price: 5.25, inventory: 20)
+
+        visit item_path(item_1)
+        click_button("Add to Cart")
+        expect(page).to have_content("Cart: 1")
+
+        visit carts_path
+
+        within "#item-#{item_1.id}" do
+          9.times do
+            click_button "Add 1"
+          end
+        end
+
+        within("#item-#{item_1.id}") do
+          expect(page).to have_content("Price: $4.99")
+        end
+
+        expect(page).to have_content("Grand Total: $49.88")
+
+        visit carts_path
+
+        within "#item-#{item_1.id}" do
+          10.times do
+            click_button "Add 1"
+          end
+        end
+
+        within("#item-#{item_1.id}") do
+          expect(page).to have_content("Price: $4.73")
+        end
+
+        expect(page).to have_content("Grand Total: $94.50")
+      end
     end
   end
+
   context 'as a visitor' do
     it 'should tell me to login/register if I am a visitor' do
       @merchant = create(:merchant)

@@ -28,7 +28,7 @@ class OrdersController < ApplicationController
     items.each do |item|
       order.order_items.create!(
         item: item,
-        price: item.price,
+        price: @cart.price(item.id),
         quantity: @cart.count_of(item.id),
         fulfilled: false)
     end
