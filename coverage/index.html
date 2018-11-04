@@ -14,7 +14,7 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2018-11-04T09:13:50-07:00">2018-11-04T09:13:50-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2018-11-04T09:28:26-07:00">2018-11-04T09:28:26-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,15 +25,15 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         3.63
+         3.65
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>43</b> files in total.
-    <b>2025</b> relevant lines. 
-    <span class="green"><b>2025</b> lines covered</span> and
+    <b>2036</b> relevant lines. 
+    <span class="green"><b>2036</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -77,7 +77,7 @@
         <td>10</td>
         <td>10</td>
         <td>0</td>
-        <td>190.3</td>
+        <td>194.6</td>
       </tr>
       
       <tr>
@@ -177,7 +177,7 @@
         <td>19</td>
         <td>19</td>
         <td>0</td>
-        <td>7.6</td>
+        <td>7.9</td>
       </tr>
       
       <tr>
@@ -187,7 +187,7 @@
         <td>56</td>
         <td>56</td>
         <td>0</td>
-        <td>5.1</td>
+        <td>5.2</td>
       </tr>
       
       <tr>
@@ -207,7 +207,7 @@
         <td>26</td>
         <td>26</td>
         <td>0</td>
-        <td>29.9</td>
+        <td>30.2</td>
       </tr>
       
       <tr>
@@ -217,7 +217,7 @@
         <td>17</td>
         <td>17</td>
         <td>0</td>
-        <td>51.5</td>
+        <td>51.8</td>
       </tr>
       
       <tr>
@@ -393,9 +393,9 @@
       <tr>
         <td class="strong"><a href="#9842f407644c1e2b1702310711a292a893f4ceb8" class="src_link" title="spec/features/users/edit_spec.rb">spec/features/users/edit_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>117</td>
-        <td>73</td>
-        <td>73</td>
+        <td>135</td>
+        <td>84</td>
+        <td>84</td>
         <td>0</td>
         <td>1.3</td>
       </tr>
@@ -636,10 +636,10 @@
           <code class="ruby">  def require_admin</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="22">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="5" data-linenumber="22">
+          <span class="hits">5</span>
           
-          <code class="ruby">    render file: &quot;/public/404&quot; unless current_admin?</code>
+          <code class="ruby">    render file: &quot;/app/views/errors/unacceptable&quot; unless current_admin?</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="23">
@@ -793,10 +793,10 @@
           <code class="ruby">  def require_admin</code>
         </li>
       
-        <li class="covered" data-hits="9" data-linenumber="21">
-          <span class="hits">9</span>
+        <li class="covered" data-hits="10" data-linenumber="21">
+          <span class="hits">10</span>
           
-          <code class="ruby">    render file: &quot;/public/404&quot; unless current_admin?</code>
+          <code class="ruby">    render file: &quot;/app/views/errors/unacceptable&quot; unless current_admin?</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="22">
@@ -872,8 +872,8 @@
           <code class="ruby">  def current_user</code>
         </li>
       
-        <li class="covered" data-hits="906" data-linenumber="8">
-          <span class="hits">906</span>
+        <li class="covered" data-hits="936" data-linenumber="8">
+          <span class="hits">936</span>
           
           <code class="ruby">    @current_user_lookup ||= User.find(session[:user_id]) if session[:user_id]</code>
         </li>
@@ -896,8 +896,8 @@
           <code class="ruby">  def current_admin?</code>
         </li>
       
-        <li class="covered" data-hits="682" data-linenumber="12">
-          <span class="hits">682</span>
+        <li class="covered" data-hits="690" data-linenumber="12">
+          <span class="hits">690</span>
           
           <code class="ruby">    current_user &amp;&amp; current_user.admin?</code>
         </li>
@@ -920,8 +920,8 @@
           <code class="ruby">  def build_cart</code>
         </li>
       
-        <li class="covered" data-hits="308" data-linenumber="16">
-          <span class="hits">308</span>
+        <li class="covered" data-hits="313" data-linenumber="16">
+          <span class="hits">313</span>
           
           <code class="ruby">    @cart ||= Cart.new(session[:cart])</code>
         </li>
@@ -2820,8 +2820,8 @@
           <code class="ruby">  def new </code>
         </li>
       
-        <li class="covered" data-hits="22" data-linenumber="3">
-          <span class="hits">22</span>
+        <li class="covered" data-hits="23" data-linenumber="3">
+          <span class="hits">23</span>
           
           <code class="ruby">    if current_user</code>
         </li>
@@ -2862,32 +2862,32 @@
           <code class="ruby">  def create </code>
         </li>
       
-        <li class="covered" data-hits="20" data-linenumber="10">
-          <span class="hits">20</span>
+        <li class="covered" data-hits="21" data-linenumber="10">
+          <span class="hits">21</span>
           
           <code class="ruby">    user = User.find_by(email: params[:email])</code>
         </li>
       
-        <li class="covered" data-hits="20" data-linenumber="11">
-          <span class="hits">20</span>
+        <li class="covered" data-hits="21" data-linenumber="11">
+          <span class="hits">21</span>
           
           <code class="ruby">    if user &amp;&amp; user.authenticate(params[:password])</code>
         </li>
       
-        <li class="covered" data-hits="18" data-linenumber="12">
-          <span class="hits">18</span>
+        <li class="covered" data-hits="19" data-linenumber="12">
+          <span class="hits">19</span>
           
           <code class="ruby">      if user.active?</code>
         </li>
       
-        <li class="covered" data-hits="16" data-linenumber="13">
-          <span class="hits">16</span>
+        <li class="covered" data-hits="17" data-linenumber="13">
+          <span class="hits">17</span>
           
           <code class="ruby">        session[:user_id] = user.id</code>
         </li>
       
-        <li class="covered" data-hits="16" data-linenumber="14">
-          <span class="hits">16</span>
+        <li class="covered" data-hits="17" data-linenumber="14">
+          <span class="hits">17</span>
           
           <code class="ruby">        redirect_to profile_path</code>
         </li>
@@ -3049,20 +3049,20 @@
           <code class="ruby">  def show</code>
         </li>
       
-        <li class="covered" data-hits="33" data-linenumber="8">
-          <span class="hits">33</span>
+        <li class="covered" data-hits="34" data-linenumber="8">
+          <span class="hits">34</span>
           
           <code class="ruby">    if request.fullpath == &#39;/profile&#39;</code>
         </li>
       
-        <li class="covered" data-hits="23" data-linenumber="9">
-          <span class="hits">23</span>
+        <li class="covered" data-hits="24" data-linenumber="9">
+          <span class="hits">24</span>
           
           <code class="ruby">      render file: &#39;errors/not_found&#39;, status: 404 unless current_user</code>
         </li>
       
-        <li class="covered" data-hits="23" data-linenumber="10">
-          <span class="hits">23</span>
+        <li class="covered" data-hits="24" data-linenumber="10">
+          <span class="hits">24</span>
           
           <code class="ruby">      @user = current_user</code>
         </li>
@@ -3693,8 +3693,8 @@
           <code class="ruby">  def initialize(initial_contents)</code>
         </li>
       
-        <li class="covered" data-hits="318" data-linenumber="5">
-          <span class="hits">318</span>
+        <li class="covered" data-hits="323" data-linenumber="5">
+          <span class="hits">323</span>
           
           <code class="ruby">    @contents = initial_contents || Hash.new(0)</code>
         </li>
@@ -3717,8 +3717,8 @@
           <code class="ruby">  def total_count</code>
         </li>
       
-        <li class="covered" data-hits="241" data-linenumber="9">
-          <span class="hits">241</span>
+        <li class="covered" data-hits="245" data-linenumber="9">
+          <span class="hits">245</span>
           
           <code class="ruby">    @contents.values.sum</code>
         </li>
@@ -4126,8 +4126,8 @@
           <code class="ruby">  def to_param</code>
         </li>
       
-        <li class="covered" data-hits="179" data-linenumber="29">
-          <span class="hits">179</span>
+        <li class="covered" data-hits="180" data-linenumber="29">
+          <span class="hits">180</span>
           
           <code class="ruby">    slug</code>
         </li>
@@ -4162,20 +4162,20 @@
           <code class="ruby">  def generate_slug</code>
         </li>
       
-        <li class="covered" data-hits="225" data-linenumber="35">
-          <span class="hits">225</span>
+        <li class="covered" data-hits="226" data-linenumber="35">
+          <span class="hits">226</span>
           
           <code class="ruby">    loop do</code>
         </li>
       
-        <li class="covered" data-hits="225" data-linenumber="36">
-          <span class="hits">225</span>
+        <li class="covered" data-hits="226" data-linenumber="36">
+          <span class="hits">226</span>
           
           <code class="ruby">      self.slug = name.parameterize + rand(1000..9999).to_s</code>
         </li>
       
-        <li class="covered" data-hits="225" data-linenumber="37">
-          <span class="hits">225</span>
+        <li class="covered" data-hits="226" data-linenumber="37">
+          <span class="hits">226</span>
           
           <code class="ruby">      break unless Item.where(slug: self.slug).exists?</code>
         </li>
@@ -13309,8 +13309,8 @@
     <h3>spec/features/users/edit_spec.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>73</b> relevant lines. 
-      <span class="green"><b>73</b> lines covered</span> and
+      <b>84</b> relevant lines. 
+      <span class="green"><b>84</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -13342,20 +13342,20 @@
           <code class="ruby">  before(:each) do</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="5">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="8" data-linenumber="5">
+          <span class="hits">8</span>
           
           <code class="ruby">    @email = &#39;drpepper@gmail.com&#39;</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="6">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="8" data-linenumber="6">
+          <span class="hits">8</span>
           
           <code class="ruby">    @password = &#39;awesomesoda&#39;</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="7">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="8" data-linenumber="7">
+          <span class="hits">8</span>
           
           <code class="ruby">    @user = create(:user, email: @email, password: @password)</code>
         </li>
@@ -13609,91 +13609,91 @@
         <li class="never" data-hits="" data-linenumber="49">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="50">
+        <li class="covered" data-hits="1" data-linenumber="50">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby"></code>
+          <code class="ruby">    it &#39;should block access to admin edit pages&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="51">
           <span class="hits">1</span>
           
-          <code class="ruby">  context &#39;As an admin user&#39; do</code>
+          <code class="ruby">      user_2 = create(:user)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="52">
           <span class="hits">1</span>
           
-          <code class="ruby">    before(:each) do</code>
+          <code class="ruby">      item = create(:item)</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="53">
-          <span class="hits">2</span>
-          
-          <code class="ruby">      admin = create(:admin)</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="54">
-          <span class="hits">2</span>
-          
-          <code class="ruby">      @new_email = &#39;new_email@gmail.com&#39;</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="55">
+        <li class="never" data-hits="" data-linenumber="53">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="56">
-          <span class="hits">2</span>
-          
-          <code class="ruby">      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="57">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="58">
+        <li class="covered" data-hits="1" data-linenumber="54">
           <span class="hits">1</span>
           
-          <code class="ruby">    it &#39;should allow admin to edit profile data if email is still unique&#39; do</code>
+          <code class="ruby">      visit login_path</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="55">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      fill_in :email, with: user_2.email</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="56">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      fill_in :password, with: user_2.password</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="57">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      click_button &#39;Log in&#39;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="58">
+          
+          
+          <code class="ruby"></code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="59">
           <span class="hits">1</span>
           
-          <code class="ruby">      user = create(:user, email: &quot;oldybutGoody@mail.com&quot;)</code>
+          <code class="ruby">      visit edit_admin_user_path(user_2)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="60">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      visit edit_admin_user_path(user)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="61">
+        <li class="never" data-hits="" data-linenumber="60">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="62">
+        <li class="covered" data-hits="1" data-linenumber="61">
           <span class="hits">1</span>
           
-          <code class="ruby">      fill_in :user_email, with: &quot;MoreAwesome@mail.com&quot;</code>
+          <code class="ruby">      expect(page).to have_content(&quot;Sorry, the system is unable to process your request.&quot;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="62">
+          
+          
+          <code class="ruby"></code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="63">
           <span class="hits">1</span>
           
-          <code class="ruby">      click_button &#39;Update User&#39;</code>
+          <code class="ruby">      visit edit_admin_item_path(item)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="64">
@@ -13705,283 +13705,283 @@
         <li class="covered" data-hits="1" data-linenumber="65">
           <span class="hits">1</span>
           
-          <code class="ruby">      expect(current_path).to eq(user_path(user))</code>
+          <code class="ruby">      expect(page).to have_content(&quot;Sorry, the system is unable to process your request.&quot;)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="66">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      within &#39;.profile-data&#39; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="67">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        expect(page).to have_content(&quot;MoreAwesome@mail.com&quot;)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="68">
-          
-          
-          <code class="ruby">      end</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="69">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      expect(page).to have_content(&quot;Profile data was successfully updated&quot;)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="70">
+        <li class="never" data-hits="" data-linenumber="66">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="71">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="72">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    it &#39;should block updating if email is not unique&#39; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="73">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      new_email = &#39;new_email@gmail.com&#39;</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="74">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      user_2 = create(:user, email: @new_email)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="75">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="76">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      visit edit_user_path(@user)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="77">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="78">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      fill_in :user_email, with: @new_email</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="79">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      click_button &#39;Update User&#39;</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="80">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="81">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      expect(current_path).to eq(user_path(@user))</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="82">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      expect(page).to have_content(&quot;Email has already been taken&quot;)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="83">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="84">
+        <li class="never" data-hits="" data-linenumber="67">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="85">
+        <li class="never" data-hits="" data-linenumber="68">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="86">
+        <li class="covered" data-hits="1" data-linenumber="69">
           <span class="hits">1</span>
           
-          <code class="ruby">  describe &#39;other users should be blocked entirely&#39; do</code>
+          <code class="ruby">  context &#39;As an admin user&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="70">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    before(:each) do</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="71">
+          <span class="hits">2</span>
+          
+          <code class="ruby">      admin = create(:admin)</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="72">
+          <span class="hits">2</span>
+          
+          <code class="ruby">      @new_email = &#39;new_email@gmail.com&#39;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="73">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="74">
+          <span class="hits">2</span>
+          
+          <code class="ruby">      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="75">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="76">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    it &#39;should allow admin to edit profile data if email is still unique&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="77">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      user = create(:user, email: &quot;oldybutGoody@mail.com&quot;)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="78">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      visit edit_admin_user_path(user)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="79">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="80">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      fill_in :user_email, with: &quot;MoreAwesome@mail.com&quot;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="81">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      click_button &#39;Update User&#39;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="82">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="83">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      expect(current_path).to eq(user_path(user))</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="84">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      within &#39;.profile-data&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="85">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        expect(page).to have_content(&quot;MoreAwesome@mail.com&quot;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="86">
+          
+          
+          <code class="ruby">      end</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="87">
           <span class="hits">1</span>
           
-          <code class="ruby">    context &#39;as a visitor&#39; do</code>
+          <code class="ruby">      expect(page).to have_content(&quot;Profile data was successfully updated&quot;)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="88">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="88">
           
-          <code class="ruby">      it &#39;should block a user edit page from anonymous users&#39; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="89">
-          <span class="hits">1</span>
           
-          <code class="ruby">        visit edit_user_path(@user)</code>
+          <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="90">
+        <li class="never" data-hits="" data-linenumber="89">
           
           
           <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="90">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    it &#39;should block updating if email is not unique&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="91">
           <span class="hits">1</span>
           
-          <code class="ruby">        expect(page.status_code).to eq(404)</code>
+          <code class="ruby">      new_email = &#39;new_email@gmail.com&#39;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="92">
+        <li class="covered" data-hits="1" data-linenumber="92">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">      end</code>
+          <code class="ruby">      user_2 = create(:user, email: @new_email)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="93">
           
           
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="94">
-          
-          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="95">
+        <li class="covered" data-hits="1" data-linenumber="94">
           <span class="hits">1</span>
           
-          <code class="ruby">    context &#39;as another registered user&#39; do</code>
+          <code class="ruby">      visit edit_user_path(@user)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="95">
+          
+          
+          <code class="ruby"></code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="96">
           <span class="hits">1</span>
           
-          <code class="ruby">      it &#39;should block a user edit page from other registered users&#39; do</code>
+          <code class="ruby">      fill_in :user_email, with: @new_email</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="97">
           <span class="hits">1</span>
           
-          <code class="ruby">        user_2 = create(:user, email: &#39;newuser_2@gmail.com&#39;)</code>
+          <code class="ruby">      click_button &#39;Update User&#39;</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="98">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user_2)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="99">
+        <li class="never" data-hits="" data-linenumber="98">
           
           
           <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="99">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      expect(current_path).to eq(user_path(@user))</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="100">
           <span class="hits">1</span>
           
-          <code class="ruby">        visit edit_user_path(@user)</code>
+          <code class="ruby">      expect(page).to have_content(&quot;Email has already been taken&quot;)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="101">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="102">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="102">
           
-          <code class="ruby">        expect(page.status_code).to eq(404)</code>
+          
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="103">
           
           
-          <code class="ruby">      end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="104">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="105">
-          
-          
           <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="104">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  describe &#39;other users should be blocked entirely&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="105">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    context &#39;as a visitor&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="106">
           <span class="hits">1</span>
           
-          <code class="ruby">    context &#39;as a merchant&#39; do</code>
+          <code class="ruby">      it &#39;should block a user edit page from anonymous users&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="107">
           <span class="hits">1</span>
           
-          <code class="ruby">      it &#39;should block a user edit page from anonymous users&#39; do</code>
+          <code class="ruby">        visit edit_user_path(@user)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="108">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        merchant = create(:merchant)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="109">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(merchant)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="110">
+        <li class="never" data-hits="" data-linenumber="108">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="111">
+        <li class="covered" data-hits="1" data-linenumber="109">
           <span class="hits">1</span>
           
-          <code class="ruby">        visit edit_user_path(@user)</code>
+          <code class="ruby">        expect(page.status_code).to eq(404)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="110">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="111">
+          
+          
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="112">
@@ -13993,28 +13993,136 @@
         <li class="covered" data-hits="1" data-linenumber="113">
           <span class="hits">1</span>
           
+          <code class="ruby">    context &#39;as another registered user&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="114">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      it &#39;should block a user edit page from other registered users&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="115">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        user_2 = create(:user, email: &#39;newuser_2@gmail.com&#39;)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="116">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user_2)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="117">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="118">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        visit edit_user_path(@user)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="119">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="120">
+          <span class="hits">1</span>
+          
           <code class="ruby">        expect(page.status_code).to eq(404)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="114">
+        <li class="never" data-hits="" data-linenumber="121">
           
           
           <code class="ruby">      end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="115">
+        <li class="never" data-hits="" data-linenumber="122">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="116">
+        <li class="never" data-hits="" data-linenumber="123">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="124">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    context &#39;as a merchant&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="125">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      it &#39;should block a user edit page from anonymous users&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="126">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        merchant = create(:merchant)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="127">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(merchant)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="128">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="129">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        visit edit_user_path(@user)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="130">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="131">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        expect(page.status_code).to eq(404)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="132">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="133">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="134">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="117">
+        <li class="never" data-hits="" data-linenumber="135">
           
           
           <code class="ruby">end</code>

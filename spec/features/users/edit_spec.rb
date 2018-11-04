@@ -46,6 +46,24 @@ RSpec.describe 'User Edit Page, aka Profile Edit' do
       expect(current_path).to eq(user_path(@user))
       expect(page).to have_content("Email has already been taken")
     end
+
+    it 'should block access to admin edit pages' do
+      user_2 = create(:user)
+      item = create(:item)
+
+      visit login_path
+      fill_in :email, with: user_2.email
+      fill_in :password, with: user_2.password
+      click_button 'Log in'
+
+      visit edit_admin_user_path(user_2)
+
+      expect(page).to have_content("Sorry, the system is unable to process your request.")
+
+      visit edit_admin_item_path(item)
+
+      expect(page).to have_content("Sorry, the system is unable to process your request.")
+    end
   end
 
   context 'As an admin user' do

@@ -19,6 +19,6 @@ private
   end
 
   def require_admin
-    render file: "/public/404" unless current_admin?
+    render file: "/app/views/errors/unacceptable" unless current_admin?
   end
 end
