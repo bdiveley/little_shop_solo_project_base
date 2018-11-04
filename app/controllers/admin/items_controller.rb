@@ -6,7 +6,6 @@ class Admin::ItemsController < ApplicationController
   end
 
   def update
-
     @item = Item.find_by(slug: params[:slug])
     @item.update(item_params)
     flash[:success] = 'Item data was successfully updated.'
