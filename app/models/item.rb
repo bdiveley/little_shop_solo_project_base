@@ -12,7 +12,7 @@ class Item < ApplicationRecord
     only_integer: true,
     greater_than_or_equal_to: 0
   }
-  validates :slug, uniqueness: true #new
+  validates :slug, uniqueness: true
 
 
   before_create :generate_slug
