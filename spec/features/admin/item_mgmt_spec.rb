@@ -13,36 +13,40 @@ RSpec.describe 'Admin-only item management' do
     fill_in :password, with: @admin.password
     click_button 'Log in'
 
+    visit items_path
+
+    within("#item-#{@item.id}") do
+      click_link "Edit Item"
+    end
+
+    expect(current_path).to eq(edit_admin_item_path(@item))
+
     visit item_path(@item)
     click_link "Edit"
 
     expect(current_path).to eq(edit_admin_item_path(@item))
   end
 
-  xit "allows admin to change the all atributes, including the slug for a user" do
+  it "allows admin to change  all atributes, including the slug for an item" do
     visit login_path
     fill_in :email, with: @admin.email
     fill_in :password, with: @admin.password
     click_button 'Log in'
 
-    visit edit_admin_user_path(@active_user)
+    visit edit_admin_item_path(@item)
 
-    fill_in :user_name, with: "New Name"
-    fill_in :user_address, with: "New Address"
-    fill_in :user_city, with: "New City"
-    fill_in :user_state, with: "New State"
-    fill_in :user_zip, with: "New Zip"
-    fill_in :user_email, with: "New Email"
-    fill_in :user_slug, with: "coolnewslug"
-    click_button 'Update User'
+    fill_in :item_name, with: "New Name"
+    fill_in :item_description, with: "New Description"
+    fill_in :item_image, with: "https://cdn.arstechnica.net/wp-content/uploads/2012/08/Acer-Aspire-A5560-7414.png"
+    fill_in :item_price, with: "150"
+    fill_in :item_inventory, with: "25"
+    fill_in :item_slug, with: "coolnewslug"
+    click_button 'Update Item'
 
-    expect(current_path).to eq('/users/coolnewslug')
+    expect(current_path).to eq('/items/coolnewslug')
     expect(page).to have_content("New Name")
-    expect(page).to have_content("New Address")
-    expect(page).to have_content("New City")
-    expect(page).to have_content("New State")
-    expect(page).to have_content("New Zip")
-    expect(page).to have_content("New Email")
-
+    expect(page).to have_content("New Description")
+    expect(page).to have_css("img[src='https://cdn.arstechnica.net/wp-content/uploads/2012/08/Acer-Aspire-A5560-7414.png']")
+    expect(page).to have_content("Price: 150.0")
   end
 end

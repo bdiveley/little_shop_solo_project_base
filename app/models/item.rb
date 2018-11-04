@@ -13,7 +13,7 @@ class Item < ApplicationRecord
     greater_than_or_equal_to: 0
   }
 
-  before_save :generate_slug
+  before_create :generate_slug
 
   def self.popular_items(quantity)
     select('items.*, sum(order_items.quantity) as total_ordered')
