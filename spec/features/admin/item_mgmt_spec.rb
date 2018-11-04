@@ -49,4 +49,33 @@ RSpec.describe 'Admin-only item management' do
     expect(page).to have_css("img[src='https://cdn.arstechnica.net/wp-content/uploads/2012/08/Acer-Aspire-A5560-7414.png']")
     expect(page).to have_content("Price: 150.0")
   end
+  it 'should block updating if slug is not unique' do
+    item_1 = create(:item)
+    item_2 = create(:item)
+
+    visit login_path
+    fill_in :email, with: @admin.email
+    fill_in :password, with: @admin.password
+    click_button 'Log in'
+
+    visit edit_admin_item_path(item_1)
+
+    fill_in :item_slug, with: "coolnewslug"
+    click_button 'Update Item'
+
+    expect(current_path).to eq("/items/coolnewslug")
+
+    visit edit_admin_item_path(item_2)
+
+    fill_in :item_slug, with: "coolnewslug"
+    click_button 'Update Item'
+
+    expect(current_path).to eq("/admin/items/#{item_2.slug}/edit")
+    expect(page).to have_content("Slug has already been taken")
+
+    fill_in :item_slug, with: "uniqueslug"
+    click_button 'Update Item'
+
+    expect(current_path).to eq('/items/uniqueslug')
+  end
 end

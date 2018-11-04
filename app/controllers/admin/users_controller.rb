@@ -7,9 +7,15 @@ class Admin::UsersController < ApplicationController
 
   def update
     @user = User.find_by(slug: params[:slug])
-    @user.update(user_params)
-    flash[:success] = 'Profile data was successfully updated.'
-    redirect_to user_path(@user)
+    if @user.update(user_params)
+      flash[:success] = 'Profile data was successfully updated.'
+      redirect_to user_path(@user)
+    elsif params[:slug] != params[:user][:slug]
+      @user[:slug] = params[:slug]
+      redirect_to edit_admin_user_path(@user), notice: "Slug has already been taken"
+    else
+      render :edit
+    end
   end
 
 private

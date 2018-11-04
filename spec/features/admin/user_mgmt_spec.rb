@@ -144,6 +144,34 @@ RSpec.describe 'Admin-only user management' do
     expect(page).to have_content("New State")
     expect(page).to have_content("New Zip")
     expect(page).to have_content("New Email")
+  end
+  it 'should block updating if slug is not unique' do
+    user_1 = create(:user, name: "Bailey")
+    user_2 = create(:user, name: "Taylor")
 
+    visit login_path
+    fill_in :email, with: @admin.email
+    fill_in :password, with: @admin.password
+    click_button 'Log in'
+
+    visit edit_admin_user_path(user_1)
+
+    fill_in :user_slug, with: "coolnewslug"
+    click_button 'Update User'
+
+    expect(current_path).to eq("/users/coolnewslug")
+
+    visit edit_admin_user_path(user_2)
+
+    fill_in :user_slug, with: "coolnewslug"
+    click_button 'Update User'
+
+    expect(current_path).to eq("/admin/users/#{user_2.slug}/edit")
+    expect(page).to have_content("Slug has already been taken")
+
+    fill_in :user_slug, with: "uniqueslug"
+    click_button 'Update User'
+
+    expect(current_path).to eq('/users/uniqueslug')
   end
 end
