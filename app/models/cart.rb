@@ -38,8 +38,19 @@ class Cart
   def grand_total
     total = 0
     Item.where(id: @contents.keys).each do |item|
-      total += (item.price * count_of(item.id))
+      total += (price(item.id) * count_of(item.id))
     end
     total
+  end
+
+  def price(item_id)
+    item = Item.find(item_id)
+    if @contents[item_id.to_s] < 10
+      item.price
+    elsif @contents[item_id.to_s] >= 10 && @contents[item_id.to_s] < 20
+      item.price * 0.95
+    else
+      item.price * 0.9
+    end
   end
 end

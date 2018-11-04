@@ -15,4 +15,6 @@ class OrderItem < ApplicationRecord
     s = quantity * price
     s
   end
+
+  
 end
