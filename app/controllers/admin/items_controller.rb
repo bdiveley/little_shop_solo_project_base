@@ -7,9 +7,15 @@ class Admin::ItemsController < ApplicationController
 
   def update
     @item = Item.find_by(slug: params[:slug])
-    @item.update(item_params)
-    flash[:success] = 'Item data was successfully updated.'
-    redirect_to item_path(@item)
+    if @item.update(item_params)
+      flash[:success] = 'Item data was successfully updated.'
+      redirect_to item_path(@item)
+    elsif params[:slug] != params[:item][:slug]
+      @item[:slug] = params[:slug]
+      redirect_to edit_admin_item_path(@item), notice: "Slug has already been taken"
+    else
+      render :edit
+    end
   end
 
 private
