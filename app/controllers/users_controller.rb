@@ -54,7 +54,6 @@ class UsersController < ApplicationController
               @user.role = :merchant
             end
           end
-
           @user.save
 
           flash[:success] = 'Profile data was successfully updated.'
