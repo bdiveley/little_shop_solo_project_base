@@ -47,7 +47,7 @@ RSpec.describe 'Admin-only item management' do
     expect(page).to have_content("New Name")
     expect(page).to have_content("New Description")
     expect(page).to have_css("img[src='https://cdn.arstechnica.net/wp-content/uploads/2012/08/Acer-Aspire-A5560-7414.png']")
-    expect(page).to have_content("Price: 150.0")
+    expect(page).to have_content("Price: $150.00")
   end
   it 'should block updating if slug is not unique' do
     item_1 = create(:item)

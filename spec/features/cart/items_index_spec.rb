@@ -55,7 +55,7 @@ RSpec.describe 'Items Index' do
         expect(page).to have_content(@active_item.name)
         # code smell, had to hard-code an ID in the image filename for factorybot sequence
         expect(page.find("#item-image-#{@active_item.id}")['src']).to have_content "https://picsum.photos/200/300?image=1"
-        expect(page).to have_content("Price: #{@active_item.price}")
+        expect(page).to have_content("Price: #{number_to_currency(@active_item.price)}")
         expect(page).to have_content("Inventory: #{@active_item.inventory}")
 
         expect(page).to have_button("Add to Cart")
