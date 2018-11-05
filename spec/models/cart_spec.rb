@@ -82,7 +82,7 @@ RSpec.describe Cart do
 
   it '.price(item_id)' do
     cart = Cart.new({})
-    item_1 = create(:item, price: 10)
+    item_1 = create(:item, price: 10, discount: true)
     10.times do
       cart.add_item(item_1.id)
     end
@@ -94,5 +94,19 @@ RSpec.describe Cart do
     end
 
     expect(cart.price(item_1.id)).to eq(9.00)
+
+    cart = Cart.new({})
+    item_2 = create(:item, price: 10)
+    10.times do
+      cart.add_item(item_2.id)
+    end
+
+    expect(cart.price(item_2.id)).to eq(10.0)
+
+    10.times do
+      cart.add_item(item_2.id)
+    end
+
+    expect(cart.price(item_2.id)).to eq(10.0)
   end
 end

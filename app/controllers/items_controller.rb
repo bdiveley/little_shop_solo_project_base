@@ -48,7 +48,6 @@ class ItemsController < ApplicationController
   def update
     render file: 'errors/not_found', status: 404 if current_user.nil?
     @merchant = User.find_by(slug: params[:merchant_slug])
-#fix this
     if params[:slug]
       @item = Item.find_by(slug: params[:slug])
     else
@@ -65,6 +64,16 @@ class ItemsController < ApplicationController
     elsif request.fullpath.split('/')[-1] == 'enable'
       flash[:success] = "Item #{@item.id} is now enabled"
       @item.active = true
+      @item.save
+      redirect_to current_admin? ? merchant_items_path(@merchant) : dashboard_items_path
+    elsif request.fullpath.split('/')[-1] == 'apply_discount'
+      flash[:success] = "Item #{@item.id} now has a discount applied"
+      @item.discount = true
+      @item.save
+      redirect_to current_admin? ? merchant_items_path(@merchant) : dashboard_items_path
+    elsif request.fullpath.split('/')[-1] == 'remove_discount'
+      flash[:success] = "Item #{@item.id} is no longer discounted"
+      @item.discount = false
       @item.save
       redirect_to current_admin? ? merchant_items_path(@merchant) : dashboard_items_path
     else

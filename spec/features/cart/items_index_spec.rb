@@ -35,7 +35,18 @@ RSpec.describe 'Items Index' do
         end
         expect(current_path).to eq(item_path(@active_item))
       end
+      it 'should display if the item is discounted' do
+        FactoryBot.reload
+        item_1 = create(:item, user: @merchant, name: "Bean Bag", price: 5.25, inventory: 20, discount: true)
+
+        visit items_path
+
+        within "#item-#{item_1.id}" do
+          expect(page).to have_content("This item is discounted 5% if you purchase at least 10 items and 10% discounted if you purchase 20 or more!")
+        end
+      end
     end
+
     describe 'visiting /items/:id' do
       it 'should show all item content plus a button to add to cart' do
         visit item_path(@active_item)
@@ -44,7 +55,7 @@ RSpec.describe 'Items Index' do
         expect(page).to have_content(@active_item.name)
         # code smell, had to hard-code an ID in the image filename for factorybot sequence
         expect(page.find("#item-image-#{@active_item.id}")['src']).to have_content "https://picsum.photos/200/300?image=1"
-        expect(page).to have_content("Price: #{@active_item.price}")
+        expect(page).to have_content("Price: #{number_to_currency(@active_item.price)}")
         expect(page).to have_content("Inventory: #{@active_item.inventory}")
 
         expect(page).to have_button("Add to Cart")
@@ -159,7 +170,7 @@ RSpec.describe 'Items Index' do
       end
       it 'should display subtotal and grand total prices with discounts applied' do
         FactoryBot.reload
-        item_1 = create(:item, user: @merchant, name: "Bean Bag", price: 5.25, inventory: 20)
+        item_1 = create(:item, user: @merchant, name: "Bean Bag", price: 5.25, inventory: 20, discount: true)
 
         visit item_path(item_1)
         click_button("Add to Cart")
