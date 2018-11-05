@@ -92,6 +92,9 @@
     </h5>
     <img class="card-img-top" id="item-image-<%= item.id %>" alt="image for <%= item.name %>" src="<%= item.image %>" width="0" />
     <p>Price: <%= number_to_currency(item.price) %></p>
+    <% if item.discount %>
+      <div id="discount">This item is discounted 5% if you purchase at least 10 items and 10% discounted if you purchase 20 or more!</div>
+    <% end  %>
     <p>
       <strong>Merchant:</strong> <%= item.user.name %><br/>
       <strong>Inventory:</strong> <%= item.inventory %></p>

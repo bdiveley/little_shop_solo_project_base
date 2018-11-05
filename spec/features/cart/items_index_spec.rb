@@ -35,7 +35,18 @@ RSpec.describe 'Items Index' do
         end
         expect(current_path).to eq(item_path(@active_item))
       end
+      it 'should display if the item is discounted' do
+        FactoryBot.reload
+        item_1 = create(:item, user: @merchant, name: "Bean Bag", price: 5.25, inventory: 20, discount: true)
+
+        visit items_path
+
+        within "#item-#{item_1.id}" do
+          expect(page).to have_content("This item is discounted 5% if you purchase at least 10 items and 10% discounted if you purchase 20 or more!")
+        end
+      end
     end
+
     describe 'visiting /items/:id' do
       it 'should show all item content plus a button to add to cart' do
         visit item_path(@active_item)
