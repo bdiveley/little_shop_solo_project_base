@@ -37,6 +37,8 @@ Rails.application.routes.draw do
     resources :items, only: [:index, :new, :edit, :create, :update], param: :slug do
       patch 'enable', to: 'items#update'
       patch 'disable', to: 'items#update'
+      patch 'apply_discount', to: 'items#update'
+      patch 'remove_discount', to: 'items#update'
     end
   end
 

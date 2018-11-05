@@ -171,6 +171,48 @@ RSpec.describe 'Merchant Items' do
         expect(page).to have_content("Inventory can't be blank")
         expect(page).to have_content("Inventory is not a number")
       end
+      it 'should display a button to add or remove a discount for an item' do
+        item_1 = create(:item, user: @merchant)
+        item_2 = create(:item, user: @merchant, discount: true)
+
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@merchant)
+
+        visit dashboard_items_path
+
+        within "#item-#{item_1.id}" do
+          expect(page).to have_button("Add Discount")
+        end
+        within "#item-#{item_2.id}" do
+          expect(page).to have_button("Remove Discount")
+        end
+      end
+
+      it 'should allow a merchant to add/remove a discount to an item' do
+        item_1 = create(:item, user: @merchant)
+        item_2 = create(:item, user: @merchant, discount: true)
+
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@merchant)
+
+        visit dashboard_items_path
+
+        within "#item-#{item_1.id}" do
+          click_button "Add Discount"
+        end
+
+        expect(current_path).to eq(dashboard_items_path)
+        within "#item-#{item_1.id}" do
+          expect(page).to have_button("Remove Discount")
+        end
+
+        within "#item-#{item_2.id}" do
+          click_button "Remove Discount"
+        end
+
+        expect(current_path).to eq(dashboard_items_path)
+        within "#item-#{item_2.id}" do
+          expect(page).to have_button("Add Discount")
+        end
+      end
     end
   end
 end

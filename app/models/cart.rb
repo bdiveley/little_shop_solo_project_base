@@ -45,7 +45,7 @@ class Cart
 
   def price(item_id)
     item = Item.find(item_id)
-    if @contents[item_id.to_s] < 10
+    if @contents[item_id.to_s] < 10 || !item.discount
       item.price
     elsif @contents[item_id.to_s] >= 10 && @contents[item_id.to_s] < 20
       item.price * 0.95

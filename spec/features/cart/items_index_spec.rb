@@ -159,7 +159,7 @@ RSpec.describe 'Items Index' do
       end
       it 'should display subtotal and grand total prices with discounts applied' do
         FactoryBot.reload
-        item_1 = create(:item, user: @merchant, name: "Bean Bag", price: 5.25, inventory: 20)
+        item_1 = create(:item, user: @merchant, name: "Bean Bag", price: 5.25, inventory: 20, discount: true)
 
         visit item_path(item_1)
         click_button("Add to Cart")
