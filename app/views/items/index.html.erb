@@ -111,11 +111,11 @@
       <% else %>
       <%= button_to "Enable Item", merchant_item_enable_path(current_user, item.id), method: :patch, params: { toggle: :enable } %>
       <% end %>
-      <% if item.discount %>
-        <%= button_to "Remove Discount", merchant_item_remove_discount_path(current_user, item.id), method: :patch, params: { toggle: :remove_discount } %>
-      <% else %>
-        <%= button_to "Add Discount", merchant_item_apply_discount_path(current_user, item.id), method: :patch, params: { toggle: :add_discount } %>
-      <% end %>
+
+        <%= button_to "Update Discount", new_item_discount_path(item), method: :patch %>
+
+        <%= button_to "Create Discount", new_item_discount_path(item), method: :new %>
+
 
     <% end %>
   </div>
