@@ -26,7 +26,7 @@ class ItemsController < ApplicationController
     @item = @merchant.items.create(item_params)
     if @item.save
       if @item.image.nil? || @item.image.empty?
-        @item.image = 'https://picsum.photos/200/300/?image=0&blur=true'
+        @item.image = 'https://picsum.photos/200/300/?image=0'
         @item.save
       end
       flash[:success] = "Item created"
