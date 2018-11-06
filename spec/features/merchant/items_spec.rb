@@ -171,37 +171,22 @@ RSpec.describe 'Merchant Items' do
         expect(page).to have_content("Inventory can't be blank")
         expect(page).to have_content("Inventory is not a number")
       end
-      it 'should display the option to create a discount for an item' do
-        item_1 = create(:item, user: @merchant)
-        item_2 = create(:item, user: @merchant, discount: true)
-
-        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@merchant)
-
-        visit dashboard_items_path
-
-        within "#item-#{item_1.id}" do
-          expect(page).to have_button("Create Discount")
-        end
-        within "#item-#{item_2.id}" do
-          expect(page).to have_button("Update Discount")
-        end
-      end
-
-      it 'should allow a merchant to create a discount to an item' do
+      it 'should display a button to view discount index page' do
         item_1 = create(:item, user: @merchant)
         item_2 = create(:item, user: @merchant)
+        item_2.discounts.create(percent_off: 5, quantity: 10)
+        item_2.discounts.create(percent_off: 10, quantity: 20)
 
         allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@merchant)
 
         visit dashboard_items_path
 
         within "#item-#{item_1.id}" do
-          click_button "Create Discount"
+          expect(page).to have_link("Discounts")
+          click_on "Discounts"
         end
-
-        expect(current_path).to eq(new_item_discount_path(item_1))
+        expect(current_path).to eq(item_discounts_path(item_1))
       end
-
     end
   end
 end

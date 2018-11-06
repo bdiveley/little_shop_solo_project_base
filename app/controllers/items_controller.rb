@@ -66,16 +66,6 @@ class ItemsController < ApplicationController
       @item.active = true
       @item.save
       redirect_to current_admin? ? merchant_items_path(@merchant) : dashboard_items_path
-    elsif request.fullpath.split('/')[-1] == 'apply_discount'
-      flash[:success] = "Item #{@item.id} now has a discount applied"
-      @item.discount = true
-      @item.save
-      redirect_to current_admin? ? merchant_items_path(@merchant) : dashboard_items_path
-    elsif request.fullpath.split('/')[-1] == 'remove_discount'
-      flash[:success] = "Item #{@item.id} is no longer discounted"
-      @item.discount = false
-      @item.save
-      redirect_to current_admin? ? merchant_items_path(@merchant) : dashboard_items_path
     else
       @item.update(item_params)
       if @item.save

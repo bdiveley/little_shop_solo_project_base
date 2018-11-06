@@ -1,0 +1,19 @@
+<h1>Current Applied Discounts for <%= @item.name %></h1>
+
+<br style="clear: both;">
+
+<% if current_user && current_user.merchant? %>
+<%= link_to 'Add New Discount', new_item_discount_path(@item) %>
+<% end %>
+<hr>
+
+  <% @discounts.each do |discount| %>
+  <div class="card float-left m-3" style="width: 18rem;">
+    <div class="card-body" id="discount-<%= discount.id %>">
+      <p><br>
+        When a buyer purchases at least <strong><%= discount.quantity %></strong> items, the item price is discounted by <strong><%= discount.percent_off %>%</strong>
+      </p>
+    </div>
+  </div>
+  <% end %>
+</hr>
