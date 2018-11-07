@@ -25,11 +25,12 @@ RSpec.describe 'Merchant Items' do
 
         visit dashboard_items_path
 
+        expect(page.find("#item-image-#{item_1.id}")['src']).to have_content(item_1.image)
+
         within "#item-#{item_1.id}" do
           expect(page).to have_content("ID: #{item_1.id}")
           expect(page).to have_content(item_1.name)
           # code smell, had to hard-code an ID in the image filename for factorybot sequence
-          expect(page.find("#item-image-#{item_1.id}")['src']).to have_content(item_1.image)
           expect(page).to have_content("Price: #{number_to_currency(item_1.price)}")
           expect(page).to have_content("Inventory: #{item_1.inventory}")
           expect(page).to have_link("Edit Item")
@@ -85,10 +86,10 @@ RSpec.describe 'Merchant Items' do
 
         expect(current_path).to eq dashboard_items_path
         item = Item.last
+        expect(page.find("#item-image-#{item.id}")['src']).to have_content(item.image)
         within "#item-#{item.id}" do
           expect(page).to have_content("ID: #{item.id}")
           expect(page).to have_content(item.name)
-          expect(page.find("#item-image-#{item.id}")['src']).to have_content(item.image)
           expect(page).to have_content("Price: #{number_to_currency(item.price)}")
           expect(page).to have_content("Inventory: #{item.inventory}")
           expect(page).to have_link("Edit Item")
@@ -109,9 +110,7 @@ RSpec.describe 'Merchant Items' do
 
         expect(current_path).to eq dashboard_items_path
         item = Item.last
-        within "#item-#{item.id}" do
-          expect(page.find("#item-image-#{item.id}")['src']).to have_content('https://picsum.photos/200/300/?image=0&blur=true')
-        end
+          expect(page.find("#item-image-#{item.id}")['src']).to have_content('https://picsum.photos/200/300/?image=0')
       end
       it 'should block me from adding a new item if form is blank' do
         allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@merchant)
@@ -143,9 +142,10 @@ RSpec.describe 'Merchant Items' do
 
         expect(current_path).to eq dashboard_items_path
         item = Item.find(item.id) # fetch from db
+        expect(page.find("#item-image-#{item.id}")['src']).to have_content('new-image.jpg')
+
         within "#item-#{item.id}" do
           expect(page).to have_content('New Item Name')
-          expect(page.find("#item-image-#{item.id}")['src']).to have_content('new-image.jpg')
           expect(page).to have_content("Price: #{number_to_currency(5)}")
           expect(page).to have_content("Inventory: 100")
         end
@@ -171,47 +171,21 @@ RSpec.describe 'Merchant Items' do
         expect(page).to have_content("Inventory can't be blank")
         expect(page).to have_content("Inventory is not a number")
       end
-      it 'should display a button to add or remove a discount for an item' do
+      it 'should display a button to view discount index page' do
         item_1 = create(:item, user: @merchant)
-        item_2 = create(:item, user: @merchant, discount: true)
+        item_2 = create(:item, user: @merchant)
+        item_2.discounts.create(percent_off: 5, quantity: 10)
+        item_2.discounts.create(percent_off: 10, quantity: 20)
 
         allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@merchant)
 
         visit dashboard_items_path
 
         within "#item-#{item_1.id}" do
-          expect(page).to have_button("Add Discount")
+          expect(page).to have_link("Discounts")
+          click_on "Discounts"
         end
-        within "#item-#{item_2.id}" do
-          expect(page).to have_button("Remove Discount")
-        end
-      end
-
-      it 'should allow a merchant to add/remove a discount to an item' do
-        item_1 = create(:item, user: @merchant)
-        item_2 = create(:item, user: @merchant, discount: true)
-
-        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@merchant)
-
-        visit dashboard_items_path
-
-        within "#item-#{item_1.id}" do
-          click_button "Add Discount"
-        end
-
-        expect(current_path).to eq(dashboard_items_path)
-        within "#item-#{item_1.id}" do
-          expect(page).to have_button("Remove Discount")
-        end
-
-        within "#item-#{item_2.id}" do
-          click_button "Remove Discount"
-        end
-
-        expect(current_path).to eq(dashboard_items_path)
-        within "#item-#{item_2.id}" do
-          expect(page).to have_button("Add Discount")
-        end
+        expect(current_path).to eq(item_discounts_path(item_1))
       end
     end
   end

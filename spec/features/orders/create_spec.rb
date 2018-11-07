@@ -33,7 +33,8 @@ RSpec.describe 'Create Order' do
       merchant = create(:merchant)
       user = create(:user)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-      item_1 = create(:item, user: merchant, price: 9.50, inventory: 20, discount: true)
+      item_1 = create(:item, user: merchant, price: 9.50, inventory: 20)
+      item_1.discounts.create(percent_off: 10, quantity: 20, percent_off: 5, quantity: 10)
 
       visit item_path(item_1)
       click_button("Add to Cart")

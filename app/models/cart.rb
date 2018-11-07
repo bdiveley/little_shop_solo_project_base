@@ -45,12 +45,17 @@ class Cart
 
   def price(item_id)
     item = Item.find(item_id)
-    if @contents[item_id.to_s] < 10 || !item.discount
-      item.price
-    elsif @contents[item_id.to_s] >= 10 && @contents[item_id.to_s] < 20
-      item.price * 0.95
-    else
-      item.price * 0.9
+    price = item.price
+    if item.discounts.count > 0
+      item.ordered_discounts.each do |discount|
+        if @contents[item_id.to_s] >= discount.quantity
+          price = item.price * discount.percentage
+        else
+          price
+        end
+      end
     end
+    return price
   end
+
 end

@@ -4,6 +4,7 @@ RSpec.describe Item, type: :model do
   describe 'Relationships' do
     it { should belong_to(:user) }
     it { should have_many(:order_items) }
+    it { should have_many(:discounts) }
     it { should have_many(:orders).through(:order_items) }
   end
 
@@ -38,6 +39,13 @@ RSpec.describe Item, type: :model do
     it ".generate_slug" do
       item = create(:item, name: "Rubricks Cube")
       expect(item.slug). to include("rubricks-cube")
+    end
+    it ".ordered_discounts" do
+      item = create(:item, name: "Rubricks Cube")
+      discount_1 = item.discounts.create(percent_off: 10, quantity: 20)
+      discount_2 = item.discounts.create(percent_off: 5, quantity: 10)
+
+      expect(item.ordered_discounts).to eq([discount_2, discount_1])
     end
   end
 end

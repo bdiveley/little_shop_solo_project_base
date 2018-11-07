@@ -91,9 +91,10 @@
       <% end %>
     </h5>
     <p>Price: <%= number_to_currency(item.price) %></p>
-    <% if item.discount %>
-      <em>This item is discounted 5% if you purchase at least 10 items and 10% discounted if you purchase 20 or more!</em>
-    <% end  %>
+    <% %>
+    <% if item.discounts.count > 0  %>
+      <em>This item is discounted!</em>
+    <% end %>
     <p><br>
       <strong>Merchant:</strong> <%= item.user.name %><br/>
       <strong>Inventory:</strong> <%= item.inventory %></p>
@@ -106,17 +107,12 @@
       <% else %>
         <p><%= link_to 'Edit Item', edit_merchant_item_path(current_user, item), class: 'card-link' %></p>
       <% end %>
+      <%= link_to "Discounts", item_discounts_path(item) %>
       <% if item.active %>
       <%= button_to "Disable Item", merchant_item_disable_path(current_user, item.id), method: :patch, params: { toggle: :disable } %>
       <% else %>
       <%= button_to "Enable Item", merchant_item_enable_path(current_user, item.id), method: :patch, params: { toggle: :enable } %>
       <% end %>
-      <% if item.discount %>
-        <%= button_to "Remove Discount", merchant_item_remove_discount_path(current_user, item.id), method: :patch, params: { toggle: :remove_discount } %>
-      <% else %>
-        <%= button_to "Add Discount", merchant_item_apply_discount_path(current_user, item.id), method: :patch, params: { toggle: :add_discount } %>
-      <% end %>
-
     <% end %>
   </div>
 </div>
