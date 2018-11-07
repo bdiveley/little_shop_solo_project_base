@@ -91,6 +91,10 @@
       <% end %>
     </h5>
     <p>Price: <%= number_to_currency(item.price) %></p>
+    <% %>
+    <% if item.discounts.count > 0  %>
+      <em>This item is discounted!</em>
+    <% end %>
     <p><br>
       <strong>Merchant:</strong> <%= item.user.name %><br/>
       <strong>Inventory:</strong> <%= item.inventory %></p>

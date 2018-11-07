@@ -32,6 +32,10 @@ class Item < ApplicationRecord
     slug
   end
 
+  def ordered_discounts
+    discounts.order(quantity: :asc)
+  end 
+
 private
 
   def generate_slug

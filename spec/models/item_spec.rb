@@ -40,5 +40,12 @@ RSpec.describe Item, type: :model do
       item = create(:item, name: "Rubricks Cube")
       expect(item.slug). to include("rubricks-cube")
     end
+    it ".ordered_discounts" do
+      item = create(:item, name: "Rubricks Cube")
+      discount_1 = item.discounts.create(percent_off: 10, quantity: 20)
+      discount_2 = item.discounts.create(percent_off: 5, quantity: 10)
+
+      expect(item.ordered_discounts).to eq([discount_2, discount_1])
+    end
   end
 end

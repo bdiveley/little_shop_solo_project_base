@@ -32,6 +32,7 @@
 <% if current_admin? %>
   <%= link_to 'Edit', edit_admin_item_path(@item) %>
 <% elsif current_user == @item.user  %>
-  <%= link_to 'Edit', edit_merchant_item_path(@item.user, @item) %>
+  <%= link_to "Discounts", item_discounts_path(@item) %><br>
+  <%= link_to 'Edit', edit_merchant_item_path(@item.user, @item) %><br>
 <% end %>
 <%= link_to 'Back', items_path %>

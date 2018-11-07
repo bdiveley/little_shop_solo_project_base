@@ -82,7 +82,10 @@ RSpec.describe Cart do
 
   it '.price(item_id)' do
     cart = Cart.new({})
-    item_1 = create(:item, price: 10, discount: true)
+    item_1 = create(:item, price: 10)
+    item_1.discounts.create(percent_off: 5, quantity: 10)
+    item_1.discounts.create(percent_off: 10, quantity: 20)
+
     10.times do
       cart.add_item(item_1.id)
     end

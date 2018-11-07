@@ -11,4 +11,13 @@ RSpec.describe Discount, type: :model do
     it { should validate_numericality_of(:percent_off).is_greater_than_or_equal_to(0) }
     it { should validate_numericality_of(:quantity).is_greater_than_or_equal_to(0) }
   end
+
+  describe 'instance methods' do
+    it '.percentage' do
+      item = create(:item)
+      discount = item.discounts.create(percent_off: 5, quantity: 10)
+
+      expect(discount.percentage).to eq(0.95)
+    end
+  end
 end

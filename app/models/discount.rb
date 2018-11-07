@@ -10,4 +10,7 @@ class Discount < ApplicationRecord
     greater_than_or_equal_to: 0
   }
 
+  def percentage
+    1 - percent_off/100.00
+  end
 end

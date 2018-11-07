@@ -1,0 +1,27 @@
+<%= form_for [@item, @discount], url: @form_url do |f| %>
+  <% if @discount.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@discount.errors.count, "error") %> prohibited this discount from being saved:</h2>
+
+      <ul>
+      <% @discount.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :percentage_off_price %>
+    <%= f.text_field :percent_off %>
+  </div>
+
+  <div class="field">
+    <%= f.label :minimum_purchase_to_get_discount %>
+    <%= f.text_field :quantity %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
